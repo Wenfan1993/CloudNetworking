@@ -13,7 +13,10 @@ def get_seed():
 
 @app.post("/")
 def update_seed():
-    subprocess.Popen('./stress_cpu.py')
+    subprocess.run(["python", os.path.join(
+            os.getcwd(),'stress_cpu.py'
+        )]
+    )
     return '', 201
 
 if __name__ == '__main__':
